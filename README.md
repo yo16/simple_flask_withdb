@@ -1,0 +1,2 @@
+# simple_flask_withdb
+FlaskとSQLiteを使った基礎のFlaskApp
