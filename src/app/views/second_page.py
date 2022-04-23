@@ -2,7 +2,7 @@
 second_page.py
 
 """
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template
 
 
 second_page_views = Blueprint('second_pv', __name__)

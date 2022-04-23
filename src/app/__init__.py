@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 
 
 from .views.top_page import top_page_views
