@@ -69,5 +69,4 @@ def create_user() -> str:
         session.add(new_user)
         session.commit()
     
-    
     return redirect(url_for('top_pv.top_page'))

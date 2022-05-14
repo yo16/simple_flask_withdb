@@ -35,9 +35,9 @@
                 <tbody>
                     {%- for user in users %}
                     <tr>
-                        <td><input type="checkbox" id="del_id_{{ user.id }}" /></td>
+                        <td><input type="checkbox" name="del_id_{{ user.id }}" /></td>
                         <td>{{ user.id }}</td>
-                        <td>{{ user.name }}</td>
+                        <td><input type="text" name="upd_{{ user.id }}_name_{{ user.name }}" value="{{ user.name }}" /></td>
                         <td>{{ user.age }}</td>
                         <td>{{ user.email }}</td>
                     </tr>
