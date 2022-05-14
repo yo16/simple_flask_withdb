@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+Base = None
 Session = None
 
 def settings(database_url:str, encoding='utf-8', print_sql:bool=False):
@@ -11,6 +11,8 @@ def settings(database_url:str, encoding='utf-8', print_sql:bool=False):
     '''
     global Base
     global Session
+    
+    Base = declarative_base()
     
     # DBの設定
     Engine = create_engine(
