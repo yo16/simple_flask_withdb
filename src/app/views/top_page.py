@@ -3,8 +3,8 @@ top_page.py
 
 """
 from flask import Blueprint, render_template, redirect, url_for, request
+from sqlalchemy import select
 from sqlalchemy.orm import Session
-import importlib
 
 from db import Session, User
 
@@ -16,10 +16,16 @@ def top_page() -> str:
     
     Returns:
         str: トップページ
-    """    
+    """
+    # Select
+    with Session() as session:
+        stmt = select(User)
+        users = session.scalars(stmt).all()
+        print(users)
+    
     return render_template(
         'top_page/top1.html',
-        users=[]
+        users=users
     )
 
 
@@ -58,7 +64,7 @@ def create_user() -> str:
     print(f'user: ({user_id},{user_name},{user_age},{user_email})')
     new_user = User(id=user_id_i, name=user_name, age=user_age_i, email=user_email)
     
-    # 追加
+    # Insert
     with Session() as session:
         session.add(new_user)
         session.commit()
