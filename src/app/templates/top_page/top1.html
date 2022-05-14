@@ -8,5 +8,44 @@
         <h3>Hello! Simple world!!</h3>
         
         go to <a href="http://localhost/sec/123">http://localhost/sec/123</a>!
+        <hr />
+        <h3>DB操作試行</h3>
+        <ul>
+            <li>Userを作成する</li>
+            <form name="create_user" action="/create_user" method="POST">
+            <ul>
+                <li>id: <input type="text" name="user_id" /></li>
+                <li>name: <input type="text" name="user_name" /></li>
+                <li>age: <input type="text" name="user_age" /></li>
+                <li>email: <input type="text" name="user_email" /></li>
+                <input type="submit" value="登録" />
+            </ul>
+            </form>
+            <li>登録済みのUsers</li>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th />
+                        <th>id</th>
+                        <th>name</th>
+                        <th>age</th>
+                        <th>email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%- for user in users %}
+                    <tr>
+                        <td><input type="checkbox" id="del_id_{{ user.id }}" /></td>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.age }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    {%- endfor %}
+                </tbody>
+            </table>
+        </ul>
+        <br />
+        
     </body>
 </html>

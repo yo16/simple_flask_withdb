@@ -1,6 +1,5 @@
 from flask import Flask
 
-
 from .views.top_page import top_page_views
 from .views.second_page import second_page_views
 
